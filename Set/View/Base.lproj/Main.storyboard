@@ -34,9 +34,13 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Sh-TU-2fJ">
-                                <rect key="frame" x="135.5" y="102" width="49" height="30"/>
+                                <rect key="frame" x="140" y="10" width="40" height="64"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Draw 3">
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="8Sh-TU-2fJ" secondAttribute="height" multiplier="5:8" id="AIO-sw-NJX"/>
+                                    <constraint firstAttribute="width" constant="40" id="sSy-5B-iUa"/>
+                                </constraints>
+                                <state key="normal" title="Draw">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -52,301 +56,61 @@
                                 </connections>
                             </button>
                             <label verifyAmbiguity="off" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score: 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hzv-ik-Rdf">
-                                <rect key="frame" x="128" y="449.5" width="64" height="20.5"/>
+                                <rect key="frame" x="128" y="470" width="64" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="fA7-u8-HJF">
-                                <rect key="frame" x="0.0" y="140" width="320" height="200"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vIs-At-aSJ">
+                                <rect key="frame" x="0.0" y="74" width="320" height="396"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Xui-hV-D1v">
-                                        <rect key="frame" x="18" y="0.0" width="284" height="70"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="evf-DA-dru">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="396"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oc2-v1-G74" customClass="CardView" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="39" height="70"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5XW-Ix-yD7">
+                                                <rect key="frame" x="160" y="198" width="0.0" height="0.0"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="39" id="79V-vr-49E"/>
-                                                    <constraint firstAttribute="width" secondItem="oc2-v1-G74" secondAttribute="height" multiplier="5:9" id="mkz-rA-dgl"/>
-                                                </constraints>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3rP-l3-5Eq" customClass="CardView" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="49" y="0.0" width="39" height="70"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="39" id="RG9-5W-Smg"/>
-                                                    <constraint firstAttribute="width" secondItem="3rP-l3-5Eq" secondAttribute="height" multiplier="5:9" id="Vva-rQ-V5v"/>
-                                                </constraints>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="87V-iz-g3u" customClass="CardView" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="98" y="0.0" width="39" height="70"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="87V-iz-g3u" secondAttribute="height" multiplier="5:9" id="cEn-ZV-4ew"/>
-                                                    <constraint firstAttribute="width" constant="39" id="ujD-oC-4Ol"/>
-                                                </constraints>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jih-In-Uze" customClass="CardView" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="147" y="0.0" width="39" height="70"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="39" id="2cU-cc-dqL"/>
-                                                    <constraint firstAttribute="width" secondItem="jih-In-Uze" secondAttribute="height" multiplier="5:9" id="U1H-qr-rQb"/>
-                                                </constraints>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="btd-HK-JLY" customClass="CardView" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="196" y="0.0" width="39" height="70"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="39" id="XJe-8m-FF6"/>
-                                                    <constraint firstAttribute="width" secondItem="btd-HK-JLY" secondAttribute="height" multiplier="5:9" id="rqD-BD-Unr"/>
-                                                </constraints>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ed5-s5-CGd" customClass="CardView" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="245" y="0.0" width="39" height="70"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="39" id="4ZO-Hb-zTe"/>
-                                                    <constraint firstAttribute="width" secondItem="Ed5-s5-CGd" secondAttribute="height" multiplier="5:9" id="jrY-7U-hlm"/>
+                                                    <constraint firstAttribute="height" priority="250" id="98I-b2-u1C"/>
+                                                    <constraint firstAttribute="width" priority="250" id="Du3-eY-Bxx"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstItem="btd-HK-JLY" firstAttribute="width" secondItem="oc2-v1-G74" secondAttribute="width" id="Dd8-fJ-Mlk"/>
-                                            <constraint firstItem="87V-iz-g3u" firstAttribute="width" secondItem="oc2-v1-G74" secondAttribute="width" id="GYj-EN-5Mr"/>
-                                            <constraint firstItem="jih-In-Uze" firstAttribute="width" secondItem="oc2-v1-G74" secondAttribute="width" id="S6X-aB-f3H"/>
-                                            <constraint firstItem="Ed5-s5-CGd" firstAttribute="width" secondItem="oc2-v1-G74" secondAttribute="width" id="d5d-Ru-cs2"/>
-                                            <constraint firstItem="3rP-l3-5Eq" firstAttribute="width" secondItem="oc2-v1-G74" secondAttribute="width" id="huU-zX-jKe"/>
+                                            <constraint firstItem="5XW-Ix-yD7" firstAttribute="centerX" secondItem="evf-DA-dru" secondAttribute="centerX" id="W1d-8M-oyV"/>
+                                            <constraint firstItem="5XW-Ix-yD7" firstAttribute="centerY" secondItem="evf-DA-dru" secondAttribute="centerY" id="pF4-I3-AjI"/>
                                         </constraints>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="GMC-oV-oWw">
-                                        <rect key="frame" x="18" y="90" width="284" height="70"/>
-                                        <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6pb-S5-Ku0" customClass="CardView" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="39" height="70"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="39" id="YGf-9v-2FI"/>
-                                                    <constraint firstAttribute="width" secondItem="6pb-S5-Ku0" secondAttribute="height" multiplier="5:9" id="paG-d4-Jwm"/>
-                                                </constraints>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oEe-NS-d81" customClass="CardView" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="49" y="0.0" width="39" height="70"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="oEe-NS-d81" secondAttribute="height" multiplier="5:9" id="52Q-wp-it0"/>
-                                                    <constraint firstAttribute="width" constant="39" id="9Jf-Mr-wtE"/>
-                                                </constraints>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LQy-Jd-XOg" customClass="CardView" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="98" y="0.0" width="39" height="70"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="39" id="EH6-ff-JeO"/>
-                                                    <constraint firstAttribute="width" secondItem="LQy-Jd-XOg" secondAttribute="height" multiplier="5:9" id="xZ9-II-8gm"/>
-                                                </constraints>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KbI-OE-Opv" customClass="CardView" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="147" y="0.0" width="39" height="70"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="KbI-OE-Opv" secondAttribute="height" multiplier="5:9" id="l2v-yP-NHq"/>
-                                                    <constraint firstAttribute="width" constant="39" id="wIs-o5-iFH"/>
-                                                </constraints>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bxf-Fq-XpH" customClass="CardView" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="196" y="0.0" width="39" height="70"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="39" id="Rq7-ZJ-zAv"/>
-                                                    <constraint firstAttribute="width" secondItem="Bxf-Fq-XpH" secondAttribute="height" multiplier="5:9" id="jlt-vc-y9J"/>
-                                                </constraints>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C63-kA-bmE" customClass="CardView" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="245" y="0.0" width="39" height="70"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="C63-kA-bmE" secondAttribute="height" multiplier="5:9" id="35S-JC-TdA"/>
-                                                    <constraint firstAttribute="width" constant="39" id="Mby-FT-KRp"/>
-                                                </constraints>
-                                            </view>
-                                        </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="gDF-Fs-OiC">
-                                        <rect key="frame" x="160" y="180" width="0.0" height="0.0"/>
-                                        <subviews>
-                                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3zM-FM-K3N" customClass="CardView" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="39" height="70.5"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="39" id="Utq-ub-LZE"/>
-                                                    <constraint firstAttribute="width" secondItem="3zM-FM-K3N" secondAttribute="height" multiplier="5:9" id="vIb-VW-YBE"/>
-                                                </constraints>
-                                            </view>
-                                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7N6-RW-Ajq" customClass="CardView" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="39" height="70.5"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="39" id="RVz-0q-ubK"/>
-                                                    <constraint firstAttribute="width" secondItem="7N6-RW-Ajq" secondAttribute="height" multiplier="5:9" id="dbL-Jf-eBy"/>
-                                                </constraints>
-                                            </view>
-                                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JqM-c1-sjt" customClass="CardView" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="39" height="70.5"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="39" id="kfT-rE-Ugl"/>
-                                                    <constraint firstAttribute="width" secondItem="JqM-c1-sjt" secondAttribute="height" multiplier="5:9" id="rNX-9Y-hvv"/>
-                                                </constraints>
-                                            </view>
-                                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jKv-ta-naT" customClass="CardView" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="39" height="70.5"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="jKv-ta-naT" secondAttribute="height" multiplier="5:9" id="Dfl-34-khf"/>
-                                                    <constraint firstAttribute="width" constant="39" id="Soh-Mn-Xqq"/>
-                                                </constraints>
-                                            </view>
-                                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cjT-ns-K9c" customClass="CardView" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="39" height="70.5"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="cjT-ns-K9c" secondAttribute="height" multiplier="5:9" id="K3i-Pk-rtz"/>
-                                                    <constraint firstAttribute="width" constant="39" id="bjZ-Lz-Nwg"/>
-                                                </constraints>
-                                            </view>
-                                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6HK-ZC-xQ4" customClass="CardView" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="39" height="70.5"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="6HK-ZC-xQ4" secondAttribute="height" multiplier="5:9" id="LgH-js-aVk"/>
-                                                    <constraint firstAttribute="width" constant="39" id="S8k-wp-pP4"/>
-                                                </constraints>
-                                            </view>
-                                        </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="7xE-Ed-9qT">
-                                        <rect key="frame" x="160" y="200" width="0.0" height="0.0"/>
-                                        <subviews>
-                                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gzt-0O-v4x" customClass="CardView" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="39" height="70.5"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="39" id="6ph-YU-GvU"/>
-                                                    <constraint firstAttribute="width" secondItem="Gzt-0O-v4x" secondAttribute="height" multiplier="5:9" id="UKP-56-h9b"/>
-                                                </constraints>
-                                            </view>
-                                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gNh-zn-YKw" customClass="CardView" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="39" height="70.5"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="39" id="A2v-rt-Wwe"/>
-                                                    <constraint firstAttribute="width" secondItem="gNh-zn-YKw" secondAttribute="height" multiplier="5:9" id="kbv-Jb-tkG"/>
-                                                </constraints>
-                                            </view>
-                                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jc0-SY-o0O" customClass="CardView" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="39" height="70.5"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="Jc0-SY-o0O" secondAttribute="height" multiplier="5:9" id="hfc-r9-Kwv"/>
-                                                    <constraint firstAttribute="width" constant="39" id="hmb-PQ-JOk"/>
-                                                </constraints>
-                                            </view>
-                                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="onY-O1-Qzx" customClass="CardView" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="39" height="70.5"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="39" id="Oa8-vV-pWD"/>
-                                                    <constraint firstAttribute="width" secondItem="onY-O1-Qzx" secondAttribute="height" multiplier="5:9" id="hEA-ux-D8f"/>
-                                                </constraints>
-                                            </view>
-                                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BFl-wX-YbJ" customClass="CardView" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="39" height="70.5"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="BFl-wX-YbJ" secondAttribute="height" multiplier="5:9" id="5lM-mO-DeP"/>
-                                                    <constraint firstAttribute="width" constant="39" id="FAB-3G-C0h"/>
-                                                </constraints>
-                                            </view>
-                                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="weO-68-vAe" customClass="CardView" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="39" height="70.5"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="39" id="VqE-an-5tg"/>
-                                                    <constraint firstAttribute="width" secondItem="weO-68-vAe" secondAttribute="height" multiplier="5:9" id="xY8-IQ-6R8"/>
-                                                </constraints>
-                                            </view>
-                                        </subviews>
-                                    </stackView>
+                                    </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="JqM-c1-sjt" firstAttribute="width" secondItem="oc2-v1-G74" secondAttribute="width" id="1eN-cA-8uc"/>
-                                    <constraint firstItem="LQy-Jd-XOg" firstAttribute="width" secondItem="oc2-v1-G74" secondAttribute="width" id="3xQ-VG-4Co"/>
-                                    <constraint firstItem="Jc0-SY-o0O" firstAttribute="width" secondItem="oc2-v1-G74" secondAttribute="width" id="4Ip-fd-o4U"/>
-                                    <constraint firstItem="6pb-S5-Ku0" firstAttribute="width" secondItem="oc2-v1-G74" secondAttribute="width" id="89n-jg-zvU"/>
-                                    <constraint firstItem="KbI-OE-Opv" firstAttribute="width" secondItem="oc2-v1-G74" secondAttribute="width" id="8XH-ub-NZw"/>
-                                    <constraint firstItem="cjT-ns-K9c" firstAttribute="width" secondItem="oc2-v1-G74" secondAttribute="width" id="CjA-me-svs"/>
-                                    <constraint firstItem="7N6-RW-Ajq" firstAttribute="width" secondItem="oc2-v1-G74" secondAttribute="width" id="HTd-ml-aPm"/>
-                                    <constraint firstItem="Gzt-0O-v4x" firstAttribute="width" secondItem="oc2-v1-G74" secondAttribute="width" id="MV2-qm-9UO"/>
-                                    <constraint firstItem="Bxf-Fq-XpH" firstAttribute="width" secondItem="oc2-v1-G74" secondAttribute="width" id="R9g-hi-POo"/>
-                                    <constraint firstItem="weO-68-vAe" firstAttribute="width" secondItem="oc2-v1-G74" secondAttribute="width" id="R9r-KU-vlZ"/>
-                                    <constraint firstItem="6HK-ZC-xQ4" firstAttribute="width" secondItem="oc2-v1-G74" secondAttribute="width" id="W7M-YJ-Gs1"/>
-                                    <constraint firstItem="Xui-hV-D1v" firstAttribute="centerX" secondItem="fA7-u8-HJF" secondAttribute="centerX" id="kTt-Wk-S74"/>
-                                    <constraint firstItem="C63-kA-bmE" firstAttribute="width" secondItem="oc2-v1-G74" secondAttribute="width" id="kbr-7d-7go"/>
-                                    <constraint firstItem="onY-O1-Qzx" firstAttribute="width" secondItem="oc2-v1-G74" secondAttribute="width" id="ohv-c4-nUg"/>
-                                    <constraint firstItem="3zM-FM-K3N" firstAttribute="width" secondItem="oc2-v1-G74" secondAttribute="width" id="p2Y-Ve-a5Y"/>
-                                    <constraint firstItem="gNh-zn-YKw" firstAttribute="width" secondItem="oc2-v1-G74" secondAttribute="width" id="rSQ-MX-cTa"/>
-                                    <constraint firstItem="BFl-wX-YbJ" firstAttribute="width" secondItem="oc2-v1-G74" secondAttribute="width" id="sP5-KD-x4p"/>
-                                    <constraint firstItem="jKv-ta-naT" firstAttribute="width" secondItem="oc2-v1-G74" secondAttribute="width" id="tAg-of-mGn"/>
-                                    <constraint firstItem="oEe-NS-d81" firstAttribute="width" secondItem="oc2-v1-G74" secondAttribute="width" id="yub-Ta-56Q"/>
+                                    <constraint firstItem="evf-DA-dru" firstAttribute="leading" secondItem="vIs-At-aSJ" secondAttribute="leading" id="7dY-KC-gFu"/>
+                                    <constraint firstAttribute="trailing" secondItem="evf-DA-dru" secondAttribute="trailing" id="Qwa-n4-GCf"/>
+                                    <constraint firstAttribute="bottom" secondItem="evf-DA-dru" secondAttribute="bottom" id="isj-bz-IUG"/>
+                                    <constraint firstItem="evf-DA-dru" firstAttribute="top" secondItem="vIs-At-aSJ" secondAttribute="top" id="lf9-Ny-Xmu"/>
                                 </constraints>
-                            </stackView>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="8Sh-TU-2fJ" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="3mR-1x-TVf"/>
-                            <constraint firstItem="hzv-ik-Rdf" firstAttribute="top" relation="greaterThanOrEqual" secondItem="fA7-u8-HJF" secondAttribute="bottom" id="FSH-NI-BDz"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="hzv-ik-Rdf" secondAttribute="top" constant="10" id="Ddn-AX-Th3"/>
                             <constraint firstItem="88h-uq-h4q" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="FaI-k2-egO"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="88h-uq-h4q" secondAttribute="trailing" id="LcL-Yh-LHz"/>
-                            <constraint firstItem="fA7-u8-HJF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Rtg-Pi-WJf"/>
-                            <constraint firstItem="fA7-u8-HJF" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="Vtj-IM-EIn"/>
-                            <constraint firstItem="8Sh-TU-2fJ" firstAttribute="top" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Zol-8M-IhU"/>
+                            <constraint firstAttribute="trailing" secondItem="vIs-At-aSJ" secondAttribute="trailing" id="PT0-vi-oEQ"/>
+                            <constraint firstItem="vIs-At-aSJ" firstAttribute="top" secondItem="8Sh-TU-2fJ" secondAttribute="bottom" id="W3E-Zf-IKj"/>
+                            <constraint firstItem="8Sh-TU-2fJ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="Zol-8M-IhU"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="hzv-ik-Rdf" secondAttribute="bottom" constant="10" id="cJh-SM-r3I"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="fA7-u8-HJF" secondAttribute="trailing" id="dBu-IS-1Dl"/>
+                            <constraint firstItem="vIs-At-aSJ" firstAttribute="bottom" secondItem="hzv-ik-Rdf" secondAttribute="top" id="gm7-De-esZ"/>
                             <constraint firstItem="88h-uq-h4q" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="jiQ-Wi-jJ0"/>
-                            <constraint firstItem="fA7-u8-HJF" firstAttribute="top" secondItem="8Sh-TU-2fJ" secondAttribute="bottom" constant="8" id="o2y-xo-PKz"/>
+                            <constraint firstItem="vIs-At-aSJ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="kYL-B2-xI2"/>
                             <constraint firstItem="hzv-ik-Rdf" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="pGV-Up-6vj"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="cardViewHolder" destination="evf-DA-dru" id="1dU-db-XbV"/>
+                        <outlet property="cardViewHolderInnerView" destination="5XW-Ix-yD7" id="Ln5-OZ-Crp"/>
                         <outlet property="scoreLabel" destination="hzv-ik-Rdf" id="jKv-lr-nbJ"/>
-                        <outletCollection property="cardViews" destination="oc2-v1-G74" collectionClass="NSMutableArray" id="SaW-Hs-M2g"/>
-                        <outletCollection property="cardViews" destination="3rP-l3-5Eq" collectionClass="NSMutableArray" id="6DL-mN-xQk"/>
-                        <outletCollection property="cardViews" destination="87V-iz-g3u" collectionClass="NSMutableArray" id="DNL-8i-Awf"/>
-                        <outletCollection property="cardViews" destination="jih-In-Uze" collectionClass="NSMutableArray" id="u6g-p1-Hs0"/>
-                        <outletCollection property="cardViews" destination="btd-HK-JLY" collectionClass="NSMutableArray" id="8Jl-Ff-mZ7"/>
-                        <outletCollection property="cardViews" destination="Ed5-s5-CGd" collectionClass="NSMutableArray" id="04A-W0-nj9"/>
-                        <outletCollection property="cardViews" destination="6pb-S5-Ku0" collectionClass="NSMutableArray" id="2fN-k4-NwR"/>
-                        <outletCollection property="cardViews" destination="oEe-NS-d81" collectionClass="NSMutableArray" id="d1L-Wr-sPL"/>
-                        <outletCollection property="cardViews" destination="LQy-Jd-XOg" collectionClass="NSMutableArray" id="ffB-K6-WGO"/>
-                        <outletCollection property="cardViews" destination="KbI-OE-Opv" collectionClass="NSMutableArray" id="ucx-Ur-Qvb"/>
-                        <outletCollection property="cardViews" destination="Bxf-Fq-XpH" collectionClass="NSMutableArray" id="QBf-HD-Amq"/>
-                        <outletCollection property="cardViews" destination="C63-kA-bmE" collectionClass="NSMutableArray" id="jOf-zc-OI7"/>
-                        <outletCollection property="cardViews" destination="3zM-FM-K3N" collectionClass="NSMutableArray" id="Wqw-so-2ga"/>
-                        <outletCollection property="cardViews" destination="7N6-RW-Ajq" collectionClass="NSMutableArray" id="TCe-Y5-iMr"/>
-                        <outletCollection property="cardViews" destination="JqM-c1-sjt" collectionClass="NSMutableArray" id="b3T-z9-Bqf"/>
-                        <outletCollection property="cardViews" destination="jKv-ta-naT" collectionClass="NSMutableArray" id="2LF-g4-Ywt"/>
-                        <outletCollection property="cardViews" destination="cjT-ns-K9c" collectionClass="NSMutableArray" id="DPE-Hp-eHj"/>
-                        <outletCollection property="cardViews" destination="6HK-ZC-xQ4" collectionClass="NSMutableArray" id="Oum-TG-L0R"/>
-                        <outletCollection property="cardViews" destination="Gzt-0O-v4x" collectionClass="NSMutableArray" id="8bY-D8-YCl"/>
-                        <outletCollection property="cardViews" destination="gNh-zn-YKw" collectionClass="NSMutableArray" id="ko9-VD-AUZ"/>
-                        <outletCollection property="cardViews" destination="Jc0-SY-o0O" collectionClass="NSMutableArray" id="4xO-VP-KcS"/>
-                        <outletCollection property="cardViews" destination="Jc0-SY-o0O" collectionClass="NSMutableArray" id="TPa-Dt-ubQ"/>
-                        <outletCollection property="cardViews" destination="onY-O1-Qzx" collectionClass="NSMutableArray" id="igx-fp-Asb"/>
-                        <outletCollection property="cardViews" destination="BFl-wX-YbJ" collectionClass="NSMutableArray" id="GM6-uk-SF8"/>
-                        <outletCollection property="cardViews" destination="weO-68-vAe" collectionClass="NSMutableArray" id="wAM-qe-k9e"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
