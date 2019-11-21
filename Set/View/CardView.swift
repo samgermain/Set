@@ -48,6 +48,7 @@ class CardView: UIView {
 
     
         override func draw(_ rect: CGRect){
+            
             switch(self.color){
             case(Color.Green):
                 UIColor.green.set()

@@ -86,7 +86,7 @@ class ViewController: UIViewController, CardViewDelegate {
 
             v.frame = CGRect(x: x, y: y, width: cardW, height: cardH)
             x += cardW
-            if x + cardW > innerViewW {
+            if x + cardW > innerViewW + 1.0 {
                 x = 0.0
                 y += cardH
             }
@@ -125,8 +125,8 @@ class ViewController: UIViewController, CardViewDelegate {
              prevH1 = h
              numCols -= 1
              numRows = ceil(numItems / numCols)
-             h = containerHeight / numCols
-             w = h * 5.0 / 8.0
+             w = containerWidth / numCols
+             h = w * 8.0 / 5.0
          }
         
         
@@ -192,6 +192,7 @@ class ViewController: UIViewController, CardViewDelegate {
      Sets the model up with a new game
      */
     private func resetModel(){
+        cardViewHolderInnerView.subviews.forEach { $0.removeFromSuperview() }
         game.prepareForNewGame()
         scoreObs = nil
         game = SetGame()
