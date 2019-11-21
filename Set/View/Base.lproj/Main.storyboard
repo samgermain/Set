@@ -69,7 +69,6 @@
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5XW-Ix-yD7">
                                                 <rect key="frame" x="160" y="198" width="0.0" height="0.0"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" priority="250" id="98I-b2-u1C"/>
                                                     <constraint firstAttribute="width" priority="250" id="Du3-eY-Bxx"/>
@@ -110,6 +109,8 @@
                     <connections>
                         <outlet property="cardViewHolder" destination="evf-DA-dru" id="1dU-db-XbV"/>
                         <outlet property="cardViewHolderInnerView" destination="5XW-Ix-yD7" id="Ln5-OZ-Crp"/>
+                        <outlet property="cardViewHolderInnerViewHeight" destination="98I-b2-u1C" id="UL5-IO-zfn"/>
+                        <outlet property="cardViewHolderInnerViewWidth" destination="Du3-eY-Bxx" id="beg-z8-4Ob"/>
                         <outlet property="scoreLabel" destination="hzv-ik-Rdf" id="jKv-lr-nbJ"/>
                     </connections>
                 </viewController>

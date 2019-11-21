@@ -13,6 +13,8 @@ class ViewController: UIViewController, CardViewDelegate {
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var cardViewHolder: UIView!
     @IBOutlet weak var cardViewHolderInnerView: UIView!
+    @IBOutlet weak var cardViewHolderInnerViewHeight: NSLayoutConstraint!
+    @IBOutlet weak var cardViewHolderInnerViewWidth: NSLayoutConstraint!
     
     var cardViews = [CardView]()
     @objc var game = SetGame()
@@ -40,6 +42,11 @@ class ViewController: UIViewController, CardViewDelegate {
         }
     }
     
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        self.updateViewFromModel()
+    }
+    
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
@@ -65,29 +72,26 @@ class ViewController: UIViewController, CardViewDelegate {
             if !cardViewHolderInnerView.subviews.contains(cView){
                 cardViewHolderInnerView.addSubview(cView)
             }
+        }
             
-            let (w,h) = cardWidthHeight()
-            var x:CGFloat = 0.0
-            var y:CGFloat = 0.0
-            print(w)
-            print(h)
-            print(cardViewHolder.frame.size.width)
-            print(cardViewHolder.frame.size.height)
+        let (w,h) = cardWidthHeight()
+        var x:CGFloat = 0.0
+        var y:CGFloat = 0.0
+
             
-            cardViewHolderInnerView.subviews.forEach { v in
+        cardViewHolderInnerView.subviews.forEach { v in
 
-                v.frame = CGRect(x: x, y: y, width: w, height: h)
-                x += w
-                if x + w > cardViewHolder.frame.size.width {
-                    x = 0.0
-                    y += h
-                }
-
+            v.frame = CGRect(x: x, y: y, width: w, height: h)
+            x += w
+            if x + w > cardViewHolder.frame.size.width {
+                x = 0.0
+                y += h
             }
-            
+
+        }
             //cView.isHidden = false
             //Way to tell if you've made a match, mismatch or selection
-        }
+        
     }
     
     func cardWidthHeight() -> (CGFloat, CGFloat){
@@ -111,6 +115,9 @@ class ViewController: UIViewController, CardViewDelegate {
              h = containerHeight / numCols
              w = h * 5.0 / 8.0
          }
+        
+        cardViewHolderInnerViewWidth.constant = w * numCols
+        cardViewHolderInnerViewHeight.constant = h * numRows
         
         return (w,h)
         
