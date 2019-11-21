@@ -28,7 +28,7 @@ class SetGame: NSObject{
      Places three cards on the board
      */
     func drawThree(){
-        if (board.hasRoom || board.hasMatchedCards) && !deck.isEmpty{
+        if !deck.isEmpty{
             let (card1, card2, card3) = deck.drawThree()
             for card in [card1, card2, card3]{
                 board.add(card: card)

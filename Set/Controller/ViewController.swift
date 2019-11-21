@@ -74,18 +74,21 @@ class ViewController: UIViewController, CardViewDelegate {
             }
         }
             
-        let (w,h) = cardWidthHeight()
+        let (cardW,cardH,innerViewW,innerViewH) = cardWidthHeight()
+
+        cardViewHolderInnerViewWidth.constant = innerViewW
+        cardViewHolderInnerViewHeight.constant = innerViewH
         var x:CGFloat = 0.0
         var y:CGFloat = 0.0
 
             
         cardViewHolderInnerView.subviews.forEach { v in
 
-            v.frame = CGRect(x: x, y: y, width: w, height: h)
-            x += w
-            if x + w > cardViewHolder.frame.size.width {
+            v.frame = CGRect(x: x, y: y, width: cardW, height: cardH)
+            x += cardW
+            if x + cardW > innerViewW {
                 x = 0.0
-                y += h
+                y += cardH
             }
 
         }
@@ -94,15 +97,21 @@ class ViewController: UIViewController, CardViewDelegate {
         
     }
     
-    func cardWidthHeight() -> (CGFloat, CGFloat){
+    func cardWidthHeight() -> (CGFloat, CGFloat, CGFloat,CGFloat){
         let containerWidth = cardViewHolder.frame.size.width
-        let containerHeight = cardViewHolder.frame.size.height
+        var containerHeight = cardViewHolder.frame.size.height
         let numItems = CGFloat(cardViewHolderInnerView.subviews.count)
+        
+        
+        
         var numCols = numItems
         var numRows: CGFloat = 1
-        
         var w = containerWidth / numCols
         var h = w * 8.0 / 5.0
+        var prevW1: CGFloat = w
+        var prevH1: CGFloat = h
+        var prevCols1: CGFloat = numCols
+        var prevRows1: CGFloat = numRows
         
         if h > containerHeight {
             h = containerHeight
@@ -110,16 +119,71 @@ class ViewController: UIViewController, CardViewDelegate {
         }
         
          while h * numRows < containerHeight, numCols > 1 {
+             prevCols1 = numCols
+             prevRows1 = numRows
+             prevW1 = w
+             prevH1 = h
              numCols -= 1
              numRows = ceil(numItems / numCols)
              h = containerHeight / numCols
              w = h * 5.0 / 8.0
          }
         
-        cardViewHolderInnerViewWidth.constant = w * numCols
-        cardViewHolderInnerViewHeight.constant = h * numRows
         
-        return (w,h)
+        
+        numRows = numItems
+        numCols = 1
+        // get the width and height of a single item
+        h = containerHeight / numRows
+        w = h * 5.0 / 8.0
+        
+        if w > containerWidth {
+            w = containerWidth / numCols
+            h = w * 8.0 / 5.0
+        }
+        
+        var prevCols2: CGFloat = numCols
+        var prevRows2: CGFloat = numRows
+        var prevW2: CGFloat = w
+        var prevH2: CGFloat = h
+
+        while w * numCols < containerWidth, numRows > 1 {
+             prevRows2 = numRows
+             prevCols2 = numCols
+             prevH2 = h
+             prevW2 = w
+             numRows -= 1
+             numCols = ceil(numItems / numRows)
+             h = containerHeight / numRows
+             w = h * 5.0 / 8.0
+         }
+        
+        
+        
+        
+        
+        var cardW: CGFloat = 0
+        var cardH: CGFloat = 0
+        var finalCols: CGFloat = 0
+        var finalRows: CGFloat = 0
+        
+        if prevH2 * prevW2 > prevH1 * prevW1 {
+            cardW = prevW2
+            cardH = prevH2
+            finalCols = prevCols2
+            finalRows = prevRows2
+        } else {
+            cardW = prevW1
+            cardH = prevH1
+            finalCols = prevCols1
+            finalRows = prevRows1
+        }
+
+        // resulting width and height of the items
+        let innerViewW: CGFloat = cardW * finalCols
+        let innerViewH: CGFloat = cardH * finalRows
+        
+        return (cardW,cardH,innerViewW,innerViewH)
         
         
     }
