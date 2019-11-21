@@ -11,11 +11,6 @@ import Foundation
 class Board{
     var cards = [Card]()
     var cardRemovalQueue = RemovalQueue()
-    var hasRoom: Bool{
-        get{
-            return cards.count<=23
-        }
-    }
     var hasMatchedCards: Bool{
         get{
             return cardRemovalQueue.queue.count > 0
@@ -25,7 +20,7 @@ class Board{
     func add(card: Card){
         if let matchedIndex = cardRemovalQueue.remove(){
             cards[matchedIndex] = card
-        }else if hasRoom{
+        }else{
             cards.append(card)
         }
     }
