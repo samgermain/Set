@@ -216,9 +216,6 @@ class ViewController: UIViewController, CardViewDelegate {
     @IBAction func newGame(_ sender: UIButton) {
         self.resetModel()
         self.updateViewFromModel()
-        for cView in 12..<cardViews.count{
-            self.cardViews[cView].isHidden = true
-        }
     }
     
 }
