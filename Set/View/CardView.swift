@@ -15,6 +15,11 @@ class CardView: UIView {
     var color: Color = Color.Red
     var shape: Shape = Shape.circle
     var fill: Fill = Fill.striped
+    var isFaceDown = true{
+        didSet{
+            setNeedsDisplay()
+        }
+    }
     
     weak var delegate:CardViewDelegate?
     
@@ -37,18 +42,25 @@ class CardView: UIView {
     }
     
     private func commonInit(){
+        self.clipsToBounds = true
+        layer.borderWidth = 3.0
+        layer.cornerRadius = 5
+        self.clearsContextBeforeDrawing = true
         let tap = UITapGestureRecognizer(target: self, action: Selector(("selectCard")))
         self.addGestureRecognizer(tap)
     }
     
     @objc func selectCard(){
-        print("test")
         delegate?.selectCard(from: self)
     }
 
     
-        override func draw(_ rect: CGRect){
-            
+    override func draw(_ rect: CGRect){
+        if isFaceDown{
+            if let faceCardImage = UIImage(named: "adventure-time"){
+                faceCardImage.draw(in: bounds)
+            }
+        }else{
             switch(self.color){
             case(Color.Green):
                 UIColor.green.set()
@@ -74,7 +86,7 @@ class CardView: UIView {
                 drawPoints = [secondPoint, secondLastPoint]
             case(.three):
                 drawPoints = [centerPoint,topPoint,bottomPoint]
-            }
+                }
             for point in drawPoints{
                 var path: UIBezierPath
                 switch(self.shape){
@@ -85,11 +97,11 @@ class CardView: UIView {
                 case(Shape.squiggle):
                     path = drawSquiggle(radius: radius/2, center: point)
                 }
-                
-    //            UIColor.red.set()
+                    
+        //            UIColor.red.set()
                 let lineWidth: CGFloat = 2.0
                 path.lineWidth = lineWidth
-                
+                    
                 switch(self.fill){
                 case(.empty):
                     path.stroke()
@@ -99,18 +111,17 @@ class CardView: UIView {
                 case(.striped):
                     path.lineWidth = 1
                     let context = UIGraphicsGetCurrentContext()
-                    context!.saveGState()
+                        context!.saveGState()
                     let stripes = createStripes(bounds: path.bounds)
                     path.addClip()
                     stripes.stroke()
                     context!.restoreGState()
                     path.stroke()
                 }
-                
+                    
             }
-
-
         }
+    }
         
         
         

@@ -87,12 +87,12 @@ class SetGame: NSObject{
         && shapeMatch(card1, card2, card3)
         && fillMatch(card1, card2, card3)
         && quantityMatch(card1, card2, card3){
-            for index in board.cards.indices{
-                let card = board.cards[index]
-                if card == card1 || card == card2 || card == card3{
-                    board.cardRemovalQueue.add(index)   //Schedule matched cards for removal from the board
-                }
-            }
+//            for index in board.cards.indices{
+//                let card = board.cards[index]
+//                if card == card1 || card == card2 || card == card3{
+//                    board.cardRemovalQueue.add(index)   //Schedule matched cards for removal from the board
+//                }
+//            }
             return true
         }else{
             return false

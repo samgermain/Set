@@ -33,14 +33,14 @@
                                     <action selector="newGame:" destination="BYZ-38-t0r" eventType="touchUpInside" id="f3s-PY-yQj"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Sh-TU-2fJ">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Sh-TU-2fJ">
                                 <rect key="frame" x="140" y="10" width="40" height="64"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="8Sh-TU-2fJ" secondAttribute="height" multiplier="5:8" id="AIO-sw-NJX"/>
                                     <constraint firstAttribute="width" constant="40" id="sSy-5B-iUa"/>
                                 </constraints>
-                                <state key="normal" title="Draw">
+                                <state key="normal" title="Draw" image="adventure-time">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -88,20 +88,39 @@
                                     <constraint firstItem="evf-DA-dru" firstAttribute="top" secondItem="vIs-At-aSJ" secondAttribute="top" id="lf9-Ny-Xmu"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QBm-vg-NAg">
+                                <rect key="frame" x="198" y="10" width="40" height="64"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <integer key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="8Sh-TU-2fJ" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="3mR-1x-TVf"/>
+                            <constraint firstItem="QBm-vg-NAg" firstAttribute="leading" secondItem="8Sh-TU-2fJ" secondAttribute="trailing" constant="18" id="7SP-Yw-Fmo"/>
+                            <constraint firstItem="QBm-vg-NAg" firstAttribute="top" secondItem="8Sh-TU-2fJ" secondAttribute="top" id="8kW-Lb-P9A"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="hzv-ik-Rdf" secondAttribute="top" constant="10" id="Ddn-AX-Th3"/>
                             <constraint firstItem="88h-uq-h4q" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="FaI-k2-egO"/>
+                            <constraint firstItem="QBm-vg-NAg" firstAttribute="width" secondItem="8Sh-TU-2fJ" secondAttribute="width" id="GGv-Wy-FjP"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="88h-uq-h4q" secondAttribute="trailing" id="LcL-Yh-LHz"/>
                             <constraint firstAttribute="trailing" secondItem="vIs-At-aSJ" secondAttribute="trailing" id="PT0-vi-oEQ"/>
                             <constraint firstItem="vIs-At-aSJ" firstAttribute="top" secondItem="8Sh-TU-2fJ" secondAttribute="bottom" id="W3E-Zf-IKj"/>
+                            <constraint firstItem="QBm-vg-NAg" firstAttribute="bottom" secondItem="8Sh-TU-2fJ" secondAttribute="bottom" id="Zno-c7-o8m"/>
                             <constraint firstItem="8Sh-TU-2fJ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="Zol-8M-IhU"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="hzv-ik-Rdf" secondAttribute="bottom" constant="10" id="cJh-SM-r3I"/>
                             <constraint firstItem="vIs-At-aSJ" firstAttribute="bottom" secondItem="hzv-ik-Rdf" secondAttribute="top" id="gm7-De-esZ"/>
                             <constraint firstItem="88h-uq-h4q" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="jiQ-Wi-jJ0"/>
                             <constraint firstItem="vIs-At-aSJ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="kYL-B2-xI2"/>
+                            <constraint firstItem="QBm-vg-NAg" firstAttribute="height" secondItem="8Sh-TU-2fJ" secondAttribute="height" id="oB3-w1-I2G"/>
                             <constraint firstItem="hzv-ik-Rdf" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="pGV-Up-6vj"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -111,6 +130,8 @@
                         <outlet property="cardViewHolderInnerView" destination="5XW-Ix-yD7" id="Ln5-OZ-Crp"/>
                         <outlet property="cardViewHolderInnerViewHeight" destination="98I-b2-u1C" id="UL5-IO-zfn"/>
                         <outlet property="cardViewHolderInnerViewWidth" destination="Du3-eY-Bxx" id="beg-z8-4Ob"/>
+                        <outlet property="discardPile" destination="QBm-vg-NAg" id="MPV-mZ-NC9"/>
+                        <outlet property="drawButton" destination="8Sh-TU-2fJ" id="NE0-Ym-Us3"/>
                         <outlet property="scoreLabel" destination="hzv-ik-Rdf" id="jKv-lr-nbJ"/>
                     </connections>
                 </viewController>
@@ -119,4 +140,7 @@
             <point key="canvasLocation" x="131.25" y="93.75"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="adventure-time" width="780" height="641"/>
+    </resources>
 </document>

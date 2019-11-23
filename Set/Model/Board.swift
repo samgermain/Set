@@ -10,19 +10,9 @@ import Foundation
 
 class Board{
     var cards = [Card]()
-    var cardRemovalQueue = RemovalQueue()
-    var hasMatchedCards: Bool{
-        get{
-            return cardRemovalQueue.queue.count > 0
-        }
-    }
     
     func add(card: Card){
-        if let matchedIndex = cardRemovalQueue.remove(){
-            cards[matchedIndex] = card
-        }else{
-            cards.append(card)
-        }
+        cards.append(card)
     }
     
 }
