@@ -23,9 +23,10 @@ class CardView: UIView {
     
     weak var delegate:CardViewDelegate?
     
-    override init(frame: CGRect) {
+    init(frame: CGRect, card: Card) {
         super.init(frame: frame)
         commonInit()
+        self.setAttributes(card: card)
     }
     
     required init?(coder: NSCoder) {
@@ -42,6 +43,8 @@ class CardView: UIView {
     }
     
     private func commonInit(){
+        self.clearsContextBeforeDrawing = true
+        self.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         self.clipsToBounds = true
         layer.borderWidth = 3.0
         layer.cornerRadius = 5
@@ -56,7 +59,9 @@ class CardView: UIView {
 
     
     override func draw(_ rect: CGRect){
+        print("test1")
         if isFaceDown{
+            print("test2")
             if let faceCardImage = UIImage(named: "adventure-time"){
                 faceCardImage.draw(in: bounds)
             }
