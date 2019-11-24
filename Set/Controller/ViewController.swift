@@ -106,6 +106,7 @@ class ViewController: UIViewController, CardViewDelegate {
                     cView.removeFromSuperview()
                     self.view.addSubview(cView)
                     cView.frame = frame
+
                     UIView.transition(with: cView, duration: 0.6
                         , options: .curveEaseOut, animations: {[unowned  self] in
 //                        cView.removeFromSuperview()
@@ -133,7 +134,7 @@ class ViewController: UIViewController, CardViewDelegate {
 //            if newCards.contains(v as! CardView){
 //                usleep(500000)
 //            }
-            UIView.transition(with: v, duration: 10.0, options: [.curveEaseIn, .curveEaseOut], animations: {
+            UIView.transition(with: v, duration: 0.6, options: [.curveEaseIn, .curveEaseOut], animations: {
                  v.frame = CGRect(x: x, y: y, width: cardW, height: cardH)
             }, completion: {_ in
                 if newCards.contains(v as! CardView){
