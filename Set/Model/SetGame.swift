@@ -10,7 +10,7 @@ import Foundation
 
 class SetGame: NSObject{
     var deck = Deck()
-    @objc dynamic var score = 0
+    var setCount = 0
     var board = Board()
     var selectedCards: [Card]{
         get{
@@ -50,7 +50,6 @@ class SetGame: NSObject{
         //Tapping on an already selected card deselects it
         if board.cards[index].isSelected{
             board.cards[index].deselect()
-            score += Score.deselect
         }else if board.cards[index].isMatched{  //You cannot change the state of matched cards
             return
         }else{
@@ -62,14 +61,13 @@ class SetGame: NSObject{
                         card.match()
                         card.match()
                     }
-                    score += Score.match
+                    setCount += 1
                 }else{
                     for card in selectedCards{
                         card.misMatch()
                         card.misMatch()
                         card.misMatch()
                     }
-                    score += Score.mismatch
                 }
             }
         }
@@ -79,7 +77,7 @@ class SetGame: NSObject{
      Change observed values so that the view updates before a new game is created
      */
     func prepareForNewGame(){
-        self.score = 0
+        self.setCount = 0
     }
     
     private func match(_ card1: Card, _ card2: Card, _ card3: Card) -> Bool{
