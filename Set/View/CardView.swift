@@ -101,7 +101,6 @@ class CardView: UIView {
                     path = drawSquiggle(radius: (radius * 0.75)/2, center: point)
                 }
                     
-        //            UIColor.red.set()
                 let lineWidth: CGFloat = 2.0
                 path.lineWidth = lineWidth
                     
