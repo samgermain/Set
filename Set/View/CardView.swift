@@ -46,7 +46,7 @@ class CardView: UIView {
         self.clearsContextBeforeDrawing = true
         self.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         self.clipsToBounds = true
-        layer.borderWidth = 3.0
+        layer.borderWidth = 2
         layer.cornerRadius = 5
         self.clearsContextBeforeDrawing = true
         let tap = UITapGestureRecognizer(target: self, action: Selector(("selectCard")))
@@ -59,9 +59,7 @@ class CardView: UIView {
 
     
     override func draw(_ rect: CGRect){
-        print("test1")
         if isFaceDown{
-            print("test2")
             if let faceCardImage = UIImage(named: "adventure-time"){
                 faceCardImage.draw(in: bounds)
             }
@@ -75,7 +73,7 @@ class CardView: UIView {
                 UIColor.purple.set()
             }
             
-            let radius = bounds.width / 4
+            let radius = bounds.width / 4 - 2
             let centerY = (bounds.maxY - bounds.minY) / 2
             let centerX = (bounds.maxX - bounds.minX)/2
             let centerPoint = CGPoint(x: centerX, y: centerY)
@@ -100,7 +98,7 @@ class CardView: UIView {
                 case(Shape.circle):
                     path = drawCircle(radius: radius, center: point)
                 case(Shape.squiggle):
-                    path = drawSquiggle(radius: radius/2, center: point)
+                    path = drawSquiggle(radius: (radius * 0.75)/2, center: point)
                 }
                     
         //            UIColor.red.set()
@@ -109,6 +107,7 @@ class CardView: UIView {
                     
                 switch(self.fill){
                 case(.empty):
+                    path.lineWidth = 1.5
                     path.stroke()
                 case(.solid):
                     path.stroke()
@@ -152,14 +151,14 @@ class CardView: UIView {
         private func drawSquiggle(radius: CGFloat, center: CGPoint) -> UIBezierPath{
             let path = UIBezierPath()
             
-            path.addArc(withCenter: CGPoint(x: center.x - radius*0.75, y: center.y), radius: radius, startAngle: 0, endAngle: CGFloat.pi, clockwise: true)
-            path.addLine(to: CGPoint(x: center.x - 1.25 * radius, y: center.y))
-            path.addArc(withCenter: CGPoint(x: center.x - 0.75 * radius, y: center.y), radius: radius/2, startAngle: CGFloat.pi, endAngle: CGFloat.pi * 2, clockwise: false)
+            path.addArc(withCenter: CGPoint(x: center.x - radius*1.5, y: center.y), radius: radius*2, startAngle: 0, endAngle: CGFloat.pi, clockwise: true)
+            path.addArc(withCenter: CGPoint(x: center.x - radius*3, y: center.y), radius: radius * 0.5, startAngle: CGFloat.pi, endAngle: 0, clockwise: true)
+            path.addArc(withCenter: CGPoint(x: center.x - 1.5 * radius, y: center.y), radius: radius, startAngle: CGFloat.pi, endAngle: CGFloat.pi * 2, clockwise: false)
             
             
-            path.addArc(withCenter: CGPoint(x: center.x + radius * 0.75, y: center.y), radius: radius, startAngle: CGFloat.pi, endAngle: CGFloat.pi*2, clockwise: true)
-            path.addLine(to: CGPoint(x: center.x + 1.25 * radius, y: center.y))
-            path.addArc(withCenter: CGPoint(x: center.x + radius * 0.75, y: center.y), radius: radius/2, startAngle: 0, endAngle: CGFloat.pi, clockwise: false)
+            path.addArc(withCenter: CGPoint(x: center.x + radius * 1.5, y: center.y), radius: radius*2, startAngle: CGFloat.pi, endAngle: CGFloat.pi*2, clockwise: true)
+            path.addArc(withCenter: CGPoint(x: center.x + radius*3, y: center.y), radius: radius * 0.5, startAngle: 0, endAngle: CGFloat.pi, clockwise: true)
+            path.addArc(withCenter: CGPoint(x: center.x + radius * 1.5, y: center.y), radius: radius, startAngle: 0, endAngle: CGFloat.pi, clockwise: false)
             
             path.close()
             

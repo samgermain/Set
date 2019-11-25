@@ -160,6 +160,7 @@
                         <outlet property="cardViewHolderInnerView" destination="5XW-Ix-yD7" id="Ln5-OZ-Crp"/>
                         <outlet property="cardViewHolderInnerViewHeight" destination="98I-b2-u1C" id="UL5-IO-zfn"/>
                         <outlet property="cardViewHolderInnerViewWidth" destination="Du3-eY-Bxx" id="beg-z8-4Ob"/>
+                        <outlet property="cardViewHolderOuterView" destination="vIs-At-aSJ" id="Hxe-KB-8Lf"/>
                         <outlet property="discardPile" destination="QBm-vg-NAg" id="MPV-mZ-NC9"/>
                         <outlet property="drawButton" destination="8Sh-TU-2fJ" id="NE0-Ym-Us3"/>
                         <outlet property="scoreLabel" destination="hzv-ik-Rdf" id="jKv-lr-nbJ"/>

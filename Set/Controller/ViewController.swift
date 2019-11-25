@@ -11,6 +11,7 @@ import UIKit
 class ViewController: UIViewController, CardViewDelegate {
 
     @IBOutlet weak var scoreLabel: UILabel!
+    @IBOutlet weak var cardViewHolderOuterView: UIView!
     @IBOutlet weak var cardViewHolder: UIView!
     @IBOutlet weak var cardViewHolderInnerView: UIView!
     @IBOutlet weak var cardViewHolderInnerViewHeight: NSLayoutConstraint!
@@ -48,13 +49,11 @@ class ViewController: UIViewController, CardViewDelegate {
     private func updateViewFromModel(){
         var newCards = [CardView]()
         var cardViewsToRemove = [CardView]()
-        let frame = self.view.convert(drawButton.frame, to: view)
-        let frame2 = view.convert(frame, to: self.cardViewHolderInnerView)
         for index in game.board.cards.indices{
             let card = game.board.cards[index]
             var cView: CardView
             if index > cardViews.count - 1{
-                cView = CardView(frame: frame2, card: card)
+                cView = CardView(frame: CGRect.zero, card: card)
                 cardViews.append(cView)
                 cardViewHolderInnerView.addSubview(cView)
                 cView.delegate = self
@@ -70,14 +69,13 @@ class ViewController: UIViewController, CardViewDelegate {
         for cView in cardViewsToRemove{
             for index in 0..<cardViews.count{
                 if cardViews[index] == cView{
-                    cView.translatesAutoresizingMaskIntoConstraints = false
-                    //self.animator.removeBehavior(self.collisionBehavior)
-                    let origin = self.view.convert(cView.frame.origin, to: nil)
-                    let frame = CGRect(x: origin.x, y: origin.y, width: cView.frame.width, height: cView.frame.height)
+                    cView.layer.borderWidth = 0
+                    //Remove the card from the inner view and place it in the same position in the viewcontrollers view
+                    let frame = cardViewHolderInnerView.convert(cView.frame, to: self.view)
                     cView.removeFromSuperview()
                     self.view.addSubview(cView)
                     cView.frame = frame
-//                    collisionBehavior.addItem(cView)
+                    //Animate the card flying away slightly before snapping to discard pile
                     let push = UIPushBehavior(items: [cView], mode: .instantaneous)
                     push.angle = CGFloat(Int.random(in: 90...270))
                     push.magnitude = CGFloat(10.0)
@@ -90,20 +88,17 @@ class ViewController: UIViewController, CardViewDelegate {
                     snapPoint.y = snapPoint.y + discardPile.frame.height / 2
                     let snap = UISnapBehavior(item: cView, snapTo: snapPoint)
                     animator.addBehavior(snap)
-                //self.animator.removeBehavior(self.collisionBehavior)
+                    //Animate the card resizing
                     UIView.transition(with: cView, duration: 0.6
                         , options: .curveEaseInOut, animations: {[unowned  self] in
-////                        cView.removeFromSuperview()
-////                        self.view.addSubview(cView)
                             cView.frame.size.width = self.discardPile.frame.size.width
                             cView.frame.size.height = self.discardPile.frame.size.height
                         },completion: {_ in
                            //TODO: Check if self should be unowned
+                            //Animate the label displaying number of sets solved fading to the front
                             self.discardPile.alpha = 0.0
-                            
                             self.view.bringSubviewToFront(self.discardPile)
-
-                            UIView.animate(withDuration: 0.3, delay: 0.0, options: [], animations: {
+                            UIView.animate(withDuration: 0.3, delay: 0.3, options: [], animations: {
                                 self.setCountLabel.text = "\(self.game.setCount) Sets"
                                 self.discardPile.alpha = 1.0
                             }, completion: {_ in
@@ -111,10 +106,7 @@ class ViewController: UIViewController, CardViewDelegate {
                             })
                     })
                     
-//                        completion: {_ in
-                    
                     self.cardViews.remove(at: index)
-                    //})
                 
                     break
                 }
@@ -124,26 +116,32 @@ class ViewController: UIViewController, CardViewDelegate {
 
         cardViewHolderInnerViewWidth.constant = innerViewW
         cardViewHolderInnerViewHeight.constant = innerViewH
+        cardViewHolderInnerView.frame = CGRect(x: cardViewHolder.frame.size.width/2 - innerViewW/2, y: cardViewHolder.frame.size.height/2 - innerViewH/2, width: innerViewW, height: innerViewH)
+        let frame = view.convert(drawButton.frame, to: self.cardViewHolderInnerView)
         var x:CGFloat = 0.0
         var y:CGFloat = 0.0
 
-        var delay = 0.0
+        
+        var delay = 0.0 //Spaces out cards being drawn from the deck
         cardViewHolderInnerView.subviews.forEach { v in
 
             var del = 0.0
             if newCards.contains(v as! CardView){
                 del = delay
+                v.frame = frame
             }
+            //Animates the cards movin to new positions
             UIView.animate(withDuration: 0.6, delay: del, options: .curveEaseInOut, animations: {
-                 v.frame = CGRect(x: x, y: y, width: cardW, height: cardH)
+                 v.frame = CGRect(x: x, y: y, width: cardW, height: cardH)  //To fit the maximum amount of cards, the frame is adjusted for each card
             }, completion: {_ in
-                if newCards.contains(v as! CardView){
+                if newCards.contains(v as! CardView){   //If this card was just drawn
                     UIView.transition(with: v, duration: 0.6, options: .transitionFlipFromLeft, animations: {
                     (v as! CardView).isFaceDown = false
                     })
                 }
             })
 
+            //places cards side by side and row by row
             x += cardW
             if x + cardW > innerViewW + 1.0 {
                 x = 0.0
@@ -154,17 +152,17 @@ class ViewController: UIViewController, CardViewDelegate {
             }
             
         }
-            //cView.isHidden = false
-            //Way to tell if you've made a match, mismatch or selection
         
     }
     
+    /**
+     Calculate the width and height of each card, and the width and height of the container holding the cards
+     Return: CardWidth, CardHeight, ContainerWidth, ContainerHeight
+     */
     func cardWidthHeight() -> (CGFloat, CGFloat, CGFloat,CGFloat){
         let containerWidth = cardViewHolder.frame.size.width
         var containerHeight = cardViewHolder.frame.size.height
         let numItems = CGFloat(cardViewHolderInnerView.subviews.count)
-        
-        
         
         var numCols = numItems
         var numRows: CGFloat = 1
@@ -250,14 +248,6 @@ class ViewController: UIViewController, CardViewDelegate {
         
     }
     
-    /**
-     Sets the model up with a new game
-     */
-    private func resetModel(){
-        cardViewHolderInnerView.subviews.forEach { $0.removeFromSuperview() }
-        game.prepareForNewGame()
-        game = SetGame()
-    }
     
     func selectCard(from view: CardView) {
        if let cardNumber = cardViews.firstIndex(of: view){
@@ -288,7 +278,9 @@ class ViewController: UIViewController, CardViewDelegate {
         updateViewFromModel()
     }
     @IBAction func newGame(_ sender: UIButton) {
-        self.resetModel()
+        cardViewHolderInnerView.subviews.forEach { $0.removeFromSuperview() }
+        game = SetGame()
+        self.setCountLabel.text = "\(self.game.setCount) Sets"
         self.cardViews = [CardView]()
         self.updateViewFromModel()
     }
